@@ -1,0 +1,9 @@
+Department,Metric_Name,Target_Value,Actual_Value
+Engineering,Server Uptime,99.9,99.85
+Engineering,Bug Resolution,95.0,96.2
+Marketing,Campaign Reach,50000.0,54200.0
+Marketing,Conversion Rate,3.5,3.2
+Sales,Q1 Revenue,120000.0,128500.0
+Sales,Client Retention,90.0,91.5
+Operations,Supply Efficiency,98.0,97.5
+Operations,Logistics Cost,15000.0,14200.0

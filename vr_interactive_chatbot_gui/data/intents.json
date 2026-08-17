@@ -1,0 +1,49 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "greetings", "good morning", "good afternoon", "good evening"],
+      "keywords": ["hi", "hello", "hey", "greetings", "morning", "afternoon"],
+      "responses": [
+        "Hello! Welcome to the VR Interactive NLP Chatbot. How can I assist your virtual reality project today?",
+        "Hi there! Ready to explore intelligent rule-based responses and VR immersion commands?"
+      ]
+    },
+    {
+      "tag": "vr_capabilities",
+      "patterns": ["what can vr do", "virtual reality features", "headset integration", "oculus support", "meta quest", "vive controls", "immersion"],
+      "keywords": ["vr", "virtual", "reality", "headset", "immersion", "quest", "vive"],
+      "responses": [
+        "This system bridges advanced Natural Language Processing with VR simulation environments, enabling voice-driven commands and interactive dialog trees.",
+        "VR Integration allows real-time text parsing to control virtual asset states, trigger spatial audio queues, and manage simulation loops."
+      ]
+    },
+    {
+      "tag": "architecture_info",
+      "patterns": ["system architecture", "tech stack", "how does it work", "framework details", "modules", "nlp pipeline"],
+      "keywords": ["architecture", "stack", "framework", "module", "pipeline", "nlp"],
+      "responses": [
+        "The architecture follows an 8-week production blueprint: 1) Advanced Preprocessing, 2) Multi-Strategy Intent Classification, 3) State Management, and 4) Enterprise Audit Logging.",
+        "Built purely in Python utilizing NLTK corpora, custom Tkinter GUI views, and modular object-oriented design patterns."
+      ]
+    },
+    {
+      "tag": "help_faq",
+      "patterns": ["help", "support", "faq", "guide", "assist", "commands", "what can you do"],
+      "keywords": ["help", "support", "faq", "guide", "assist", "commands"],
+      "responses": [
+        "You can query me about: VR simulation features, system architecture, rule-based matching, or type 'exit' to terminate.",
+        "Need assistance? Try asking 'Tell me about VR capabilities' or 'What is the system architecture?'"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["exit", "quit", "bye", "goodbye", "terminate", "stop"],
+      "keywords": ["exit", "quit", "bye", "goodbye", "stop"],
+      "responses": [
+        "Terminating VR interactive session. Audit logs archived successfully. Goodbye!",
+        "Session closed. Have a wonderful day ahead!"
+      ]
+    }
+  ]
+}

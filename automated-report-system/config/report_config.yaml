@@ -1,0 +1,14 @@
+report_metadata:
+  title: "Enterprise Performance & Analytics Assessment"
+  organization: "Global Operations & Business Intelligence"
+  version: "2.4.0"
+
+thresholds:
+  warning_ratio: 90.0
+  optimal_ratio: 100.0
+
+styling:
+  primary_color: "#1A365D"
+  secondary_color: "#2B6CB0"
+  accent_bg: "#EDF2F7"
+  text_color: "#2D3748"

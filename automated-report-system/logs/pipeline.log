@@ -1,0 +1,25 @@
+2026-08-16 14:22:35,660 - INFO - ==========================================
+2026-08-16 14:22:35,660 - INFO - === STARTING REPORT GENERATION PIPELINE ===
+2026-08-16 14:22:35,661 - INFO - ==========================================
+2026-08-16 14:22:35,664 - INFO - Configuration file successfully loaded.
+2026-08-16 14:22:35,665 - INFO - Ingesting raw data stream from data/raw/business_metrics.csv
+2026-08-16 14:24:49,228 - INFO - ==========================================
+2026-08-16 14:24:49,229 - INFO - === STARTING REPORT GENERATION PIPELINE ===
+2026-08-16 14:24:49,229 - INFO - ==========================================
+2026-08-16 14:24:49,250 - INFO - Seeded sample CSV input at data/raw/business_metrics.csv
+2026-08-16 14:24:49,254 - INFO - Configuration file successfully loaded.
+2026-08-16 14:24:49,254 - INFO - Ingesting raw data stream from data/raw/business_metrics.csv
+2026-08-16 14:24:49,270 - INFO - Data schema validation passed successfully.
+2026-08-16 14:24:49,277 - INFO - Data transformation and KPI computations completed.
+2026-08-16 14:24:49,278 - INFO - Generating analytical visualization charts...
+2026-08-16 14:24:50,804 - INFO - Chart compiled and saved to exports/department_performance.png
+2026-08-16 14:24:50,805 - INFO - Constructing enterprise PDF document layout: exports/Enterprise_Report.pdf
+2026-08-16 14:24:51,135 - INFO - PDF Report compiled successfully at: exports/Enterprise_Report.pdf
+2026-08-16 14:24:51,135 - INFO - ==========================================
+2026-08-16 14:24:51,136 - INFO - === PIPELINE EXECUTED SUCCESSFULLY =======
+2026-08-16 14:24:51,136 - INFO - ==========================================
+2026-08-16 14:25:27,851 - INFO - Ingesting raw data stream from C:\Users\2006v\AppData\Local\Temp\pytest-of-2006v\pytest-0\test_transformer_logic0\test_metrics.csv
+2026-08-16 14:25:27,857 - INFO - Data schema validation passed successfully.
+2026-08-16 14:25:27,865 - INFO - Data transformation and KPI computations completed.
+2026-08-16 14:25:27,873 - INFO - Data schema validation passed successfully.
+2026-08-16 14:25:27,877 - ERROR - Validation Error: Missing required column 'Metric_Name'

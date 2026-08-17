@@ -1,0 +1,9 @@
+2026-08-16 15:44:38,593 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt
+2026-08-16 15:45:25,010 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt_tab
+2026-08-17 11:38:14,931 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt
+2026-08-17 11:40:56,525 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt
+2026-08-17 11:42:38,308 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt_tab
+2026-08-17 11:44:14,585 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-08-17 11:45:58,521 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: stopwords
+2026-08-17 11:45:59,736 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: averaged_perceptron_tagger
+2026-08-17 11:46:01,727 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: averaged_perceptron_tagger_eng
