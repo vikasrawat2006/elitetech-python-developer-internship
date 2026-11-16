@@ -7,15 +7,18 @@ class LanguageHandler:
         self.logger = logger
 
     def detect_language(self, text: str) -> str:
-        if not self.enabled or len(text.strip()) < 3:
+        clean = text.strip()
+        if not self.enabled or len(clean) < 12:
+            return "en"
+        # If text is purely basic ASCII words (standard English characters), default to English
+        if clean.isascii():
             return "en"
         try:
-            return detect(text)
+            return detect(clean)
         except Exception:
             return "en"
 
     def to_english(self, text: str, source_lang: str = "auto") -> tuple[str, str]:
-        """Translates user input to English and returns (english_text, detected_lang)."""
         if not self.enabled or not text.strip():
             return text, "en"
 
@@ -28,11 +31,10 @@ class LanguageHandler:
             return translated or text, detected
         except Exception as e:
             if self.logger:
-                self.logger.warning(f"Input translation fallback to raw text: {e}")
+                self.logger.warning(f"Input translation fallback: {e}")
             return text, detected
 
     def from_english(self, text: str, target_lang: str) -> str:
-        """Translates English response back to the user's language."""
         if not self.enabled or not target_lang or target_lang in ("en", "auto"):
             return text
         try:
