@@ -9,7 +9,7 @@ class DualAPIConnector:
         self.logger = logger
         self.last_error = "None"
         self.gemini_key = (os.getenv("GEMINI_API_KEY") or config.get("gemini_api_key", "")).strip().strip('"').strip("'")
-        self.gemini_model = config.get("gemini_model", "gemini-2.5-flash")
+        self.gemini_model = config.get("gemini_model", "gemini-3.5-flash")
         self.groq_key = (os.getenv("GROQ_API_KEY") or config.get("groq_api_key", "")).strip().strip('"').strip("'")
         self.groq_model = config.get("groq_model", "llama-3.3-70b-versatile")
 
@@ -29,6 +29,26 @@ class DualAPIConnector:
 
         self.wiki = wikipediaapi.Wikipedia(user_agent="VR_Hybrid_NLP_Chatbot/4.0", language="en")
 
+    def _get_gemini_candidates(self) -> list[str]:
+        """Prioritizes current 3.x models and auto-discovers available flash models on your key."""
+        candidates = [
+            self.gemini_model,
+            "gemini-3.5-flash",
+            "gemini-3.5-flash-lite",
+            "gemini-3.8-flash",
+            "gemini-3.1-flash-lite",
+            "gemini-flash-latest"
+        ]
+        try:
+            for m in self.gemini_client.models.list():
+                name = m.name.replace("models/", "")
+                if "flash" in name and "tts" not in name and "image" not in name and name not in candidates:
+                    candidates.append(name)
+        except Exception:
+            pass
+        # Remove duplicates while preserving order
+        return list(dict.fromkeys(candidates))
+
     def generate_response(self, query: str, doc_context: str = "", history: list = None) -> tuple[str, str]:
         """Returns (response_text, provider_used)."""
         errors = []
@@ -39,9 +59,9 @@ class DualAPIConnector:
         if doc_context:
             system_instruction += f"\n\n--- LOCAL KNOWLEDGE BASE CONTEXT ---\n{doc_context}"
 
-        # 1. Try Primary: Google Gemini API
+        # 1. Try Primary: Google Gemini API (Auto-discovers active 3.x / Flash models)
         if self.gemini_client:
-            for model_name in (self.gemini_model, "gemini-2.5-flash-lite", "gemini-2.0-flash"):
+            for model_name in self._get_gemini_candidates():
                 try:
                     prompt_text = query
                     if history:
@@ -60,11 +80,11 @@ class DualAPIConnector:
                         self.last_error = "None"
                         return res.text.strip(), f"Gemini ({model_name})"
                 except Exception as e:
-                    errors.append(f"Gemini [{model_name}]: {e}")
+                    errors.append(f"Gemini[{model_name}]: {str(e)[:60]}")
 
         # 2. Try Secondary: GroqCloud API
         if self.groq_client:
-            for g_model in (self.groq_model, "llama-3.1-8b-instant"):
+            for g_model in (self.groq_model, "llama-3.3-70b-versatile", "llama-3.1-8b-instant", "openai/gpt-oss-120b"):
                 try:
                     messages = [{"role": "system", "content": system_instruction}]
                     if history:
@@ -81,14 +101,14 @@ class DualAPIConnector:
                         self.last_error = "None"
                         return reply.strip(), f"Groq ({g_model})"
                 except Exception as e:
-                    errors.append(f"Groq [{g_model}]: {e}")
+                    errors.append(f"Groq[{g_model}]: {str(e)[:60]}")
 
-        # 3. Record exact error and fall back to Wikipedia
-        self.last_error = " | ".join(errors) if errors else "No valid API keys configured."
+        # 3. Record exact errors (showing both Gemini and Groq reasons) and fall back to Wikipedia
+        self.last_error = " | ".join(errors[-2:]) if errors else "No valid API keys configured."
         if self.logger:
             self.logger.warning(f"Cloud APIs failed: {self.last_error}")
 
-        return self._query_wikipedia(query), f"Wikipedia Fallback ({self.last_error[:90]})"
+        return self._query_wikipedia(query), f"Wikipedia Fallback ({self.last_error})"
 
     def _query_wikipedia(self, query: str) -> str:
         clean_topic = query.lower()
