@@ -1,15 +1,23 @@
 import os
+import sys
 import nltk
 import streamlit as st
+
+# Ensure working directory is always the folder containing web_app.py (fixes Streamlit Cloud subfolder paths)
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+os.chdir(APP_DIR)
+if APP_DIR not in sys.path:
+    sys.path.insert(0, APP_DIR)
+
 from src.chatbot_core import ChatbotCore
 
 st.set_page_config(page_title="VR AI & NLP Chatbot", page_icon="🤖", layout="centered")
 
-# Bridge Streamlit Cloud Secrets into environment variables (ignored locally if no secrets.toml exists)
+# Bridge Streamlit Cloud Secrets into environment variables
 try:
     for key in ("GEMINI_API_KEY", "GROQ_API_KEY"):
         if key in st.secrets and not os.getenv(key):
-            os.environ[key] = st.secrets[key]
+            os.environ[key] = str(st.secrets[key]).strip()
 except Exception:
     pass
 
@@ -25,6 +33,19 @@ bot = load_bot()
 with st.sidebar:
     st.title("⚙️ Chatbot Controls")
     st.caption("Hybrid NLTK + Gemini/Groq Failover + Vast Data RAG")
+
+    # Live API Connection Status Verification
+    with st.expander("🔌 Live Engine & API Status", expanded=True):
+        gemini_ok = bot.api_connector.gemini_client is not None
+        groq_ok = bot.api_connector.groq_client is not None
+        intents_loaded = os.path.exists("data/intents.json")
+
+        st.write(f"**Local NLTK Intents:** {'🟢 Loaded' if intents_loaded else '🔴 Missing'}")
+        st.write(f"**Gemini API Key:** {'🟢 Connected' if gemini_ok else '🔴 Not Detected'}")
+        st.write(f"**Groq API Key:** {'🟢 Connected' if groq_ok else '🔴 Not Detected'}")
+
+        if not gemini_ok and not groq_ok:
+            st.warning("Add GEMINI_API_KEY and GROQ_API_KEY in Streamlit App Settings → Secrets, then reboot.")
 
     lang_options = {
         "Auto-Detect Language": "auto",
