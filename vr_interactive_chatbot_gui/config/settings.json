@@ -9,7 +9,7 @@
   "enable_multilanguage": true,
   "default_language": "auto",
   "gemini_api_key": "YOUR_GEMINI_API_KEY",
-  "gemini_model": "gemini-2.5-flash",
+  "gemini_model": "gemini-3.5-flash",
   "groq_api_key": "YOUR_GROQ_API_KEY",
   "groq_model": "llama-3.3-70b-versatile",
   "knowledge_docs_dir": "data/knowledge_docs"
