@@ -1,9 +1,16 @@
 {
-  "chatbot_name": "VR Interactive NLP Chatbot with Rule-Based Intelligence",
-  "version": "3.5.0",
+  "chatbot_name": "VR Interactive Hybrid NLP & AI Chatbot",
+  "version": "4.0.0",
   "theme": "dark",
   "accent_color": "blue",
   "confidence_threshold": 0.40,
   "max_history_limit": 100,
-  "log_level": "DEBUG"
+  "log_level": "DEBUG",
+  "enable_multilanguage": true,
+  "default_language": "auto",
+  "gemini_api_key": "YOUR_GEMINI_API_KEY",
+  "gemini_model": "gemini-3.5-flash",
+  "groq_api_key": "",
+  "groq_model": "openai/gpt-oss-120b",
+  "knowledge_docs_dir": "data/knowledge_docs"
 }

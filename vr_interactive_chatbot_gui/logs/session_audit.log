@@ -7,3 +7,25 @@
 2026-08-17 11:45:58,521 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: stopwords
 2026-08-17 11:45:59,736 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: averaged_perceptron_tagger
 2026-08-17 11:46:01,727 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: averaged_perceptron_tagger_eng
+2026-08-17 15:28:39,739 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt_tab
+2026-08-17 15:28:39,810 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-08-17 15:31:04,657 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt_tab
+2026-08-17 15:31:04,742 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-19 10:52:19,956 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: punkt_tab
+2026-09-19 10:52:38,224 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-19 15:43:53,752 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-19 15:49:16,330 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-25 12:31:51,225 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-25 12:43:53,415 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-09-25 12:59:04,977 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-11-16 20:44:07,534 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-11-16 20:44:10,076 | INFO     | [document_retriever.py:69] | Loaded 38 knowledge chunks from data/knowledge_docs.
+2026-11-16 20:45:59,996 | WARNING  | [language_handler.py:31] | Input translation fallback to raw text: Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+2026-11-16 20:46:06,393 | WARNING  | [language_handler.py:43] | Output translation error: Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+2026-11-16 20:48:26,015 | WARNING  | [language_handler.py:31] | Input translation fallback to raw text: Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+2026-11-16 20:48:51,698 | WARNING  | [api_connector.py:62] | Gemini API failed, failing over to Groq: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-11-16 20:48:54,932 | WARNING  | [language_handler.py:43] | Output translation error: Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+2026-11-16 20:49:18,670 | INFO     | [document_retriever.py:38] | Indexed uploaded file 'VIKAS_RAWAT_TCA2468653_Synopsis.pdf' (76 total chunks).
+2026-11-16 20:56:01,015 | INFO     | [preprocessor.py:40] | Attempting to download NLTK corpus: wordnet
+2026-11-16 20:56:03,430 | INFO     | [document_retriever.py:69] | Loaded 38 knowledge chunks from data/knowledge_docs.
+2026-11-16 20:56:15,312 | INFO     | [document_retriever.py:38] | Indexed uploaded file 'VIKAS_RAWAT_TCA2468653_Synopsis.pdf' (76 total chunks).
